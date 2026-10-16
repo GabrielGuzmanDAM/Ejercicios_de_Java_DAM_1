@@ -1,7 +1,7 @@
 /*
- * Descripción: 
+ * Descripción: verifica que el usuario compla los requisitos para onsequir el trabajo y le dices su salario
  * Autor: Gabriel Guzmán
- * Fecha: 15/10/2026
+ * Fecha: 16/10/2026
  */
 
 package ejercicio2;
@@ -60,10 +60,17 @@ public class Ejercicio2 {
 				System.out.println("-------------");
 				System.out.println("Lo sentimos pero no cumple nuestro perfil");
 				
+			} else if (anosTravajo > 5 || proyectoTrabajados > 5) {
+				
+				System.out.println("-------------");
+				System.out.println("Enhorabuena. Ha sido contratado");
+				System.out.println("Su salario anual sera de: 30.000");
+				
 			} else {
 				
 				System.out.println("-------------");
 				System.out.println("Enhorabuena. Ha sido contratado");
+				System.out.println("Su salario anual sera de: 25.000");
 
 			}
 

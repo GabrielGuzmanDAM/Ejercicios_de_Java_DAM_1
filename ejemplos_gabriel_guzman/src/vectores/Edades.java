@@ -6,6 +6,7 @@
 
 package vectores;
 
+import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -16,7 +17,7 @@ public class Edades {
 		
 		int[] edad;
 		
-		edad = new int[30];
+		edad = new int[1000];
 		
 		int suma = 0;
 		
@@ -52,9 +53,80 @@ public class Edades {
 		}
 		
 		System.out.println("-------------");
-		System.out.printf("La cantidad de edades por encima de la media eran: %d ",numeroEdadesEncimaMedia);		
+		System.out.printf("La cantidad de edades por encima de la media eran: %d \n",numeroEdadesEncimaMedia);		
+		
+		int edadPedida;
+		
+		int pasos = 0;
+		
+		boolean fin = false;
+		
+		int contador = 0;
+		
+		System.out.println("-------------");
+		System.out.printf("Dame la edad que quieres buscar: ");
+		edadPedida = pedirInt(pedido);
+		
+		do {
+			
+			if (edadPedida == edad[pasos]) {
+				if (contador == 3) {
+					
+					System.out.println("-------------");
+					System.out.printf("En la pocición %d esta la edad que se busca %d \n", pasos, edad[pasos]);	
+					
+					 fin = true;
+					
+				}
+				
+				contador ++;
+				
+
+				
+			} else if (pasos == edad.length - 1){
+				
+				System.out.println("-------------");
+				System.out.printf("No esta la edad que se busca");	
+				
+				 fin = true;
+			} 
+			
+			pasos ++;
+			
+			
+		} while (!fin);
 
 		
+	}
+	
+	//pedirInt: pide un int al usuario, en este caso negamos los negativos (int)
+	public static int pedirInt(Scanner pedido) {
+		
+		int numero = 0;
+		
+		boolean error = false;
+		
+		do {
+			
+			try {
+				
+				numero = pedido.nextInt();
+				error = false;
+				
+			} catch (InputMismatchException  e) {
+				System.out.println("Error: Debe de introducir un numero entero");
+				pedido.nextLine();
+				error = true;
+			}
+			
+			if (numero < 0) {
+				System.out.println("Error: Debe de introducir un numero no es valido");
+				error = true;
+			}
+			
+		} while (error);
+		
+		return numero;
 	}
 
 }
