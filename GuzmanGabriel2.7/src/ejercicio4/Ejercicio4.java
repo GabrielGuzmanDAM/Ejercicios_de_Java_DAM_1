@@ -30,7 +30,7 @@ public class Ejercicio4 {
 			System.out.println("-------------");
 			System.out.println("IMPORTES DEL ULTIMO MES");
 			System.out.println("-------------");
-			System.out.println("1. Agregar inporte: ");
+			System.out.println("1. Agregar nota: ");
 			System.out.println("0. fin.");
 			System.out.println("-------------");
 			System.out.print("Numero: ");
