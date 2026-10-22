@@ -1,5 +1,5 @@
 /*
- * Descripción: 
+ * Descripción: pide 10 numeros y calcula la media de numeros negativos y positivos y elca cantidad de 0
  * Autor: Gabriel Guzmán
  * Fecha: 19/10/2026
  */
@@ -15,20 +15,55 @@ public class Ejercicio5 {
 		Scanner pedido = new Scanner(System.in);
 		
 		double numero;
-		double mediaPositiva;
-		double mediaNeegativa;
-		int contadorPisitivo =0;
-		int contadorNegativa =0;
-		int contador0 =0;
+		double sumaPositiva = 0;
+		double sumaNegativo = 0;
+		double mediaPositiva = 0;
+		double mediaNegativa = 0;
+		int contador = 1;
+		int contadorPositivo = 0;
+		int contadorNegativa = 0;
+		int contador0 = 0;
 		
 		for (int i = 0; i < 10; i++) {
 			
-			System.out.println("-------------");
-			System.out.print("Dame un numero: ");
+
+			System.out.printf("Dame un numero (%d): " , contador);
 			numero = pedirDouble(pedido);
+			
+			if (numero > 0) {
+				
+				contadorPositivo ++;
+				
+				sumaPositiva += numero;
+				
+				
+			}else if (numero < 0) {
+				
+				contadorNegativa++;
+				
+				sumaNegativo += numero;
+				
+			}else {
+				
+				contador0 ++;
+				
+			}
+			
+			contador ++;
 
 		}
 		
+		mediaPositiva = sumaPositiva / contadorPositivo;
+		
+		mediaNegativa = sumaNegativo / contadorNegativa;
+		
+		
+		System.out.println("-------------");
+		System.out.printf("Media de numeros positivos: %.2f \n" , mediaPositiva);
+		System.out.println("-------------");
+		System.out.printf("Media de numeros negativas: %.2f \n" , mediaNegativa);
+		System.out.println("-------------");
+		System.out.printf("La cantidad de 0: %d \n" , contador0);
 	}
 	
 	
