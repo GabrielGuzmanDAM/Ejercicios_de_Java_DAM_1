@@ -1,5 +1,5 @@
 /*
- * Descripción:
+ * Descripción: Muestra el factorial de el numero dado
  * Autor: Gabriel Guzmán
  * Fecha: 23/10/2026
  */

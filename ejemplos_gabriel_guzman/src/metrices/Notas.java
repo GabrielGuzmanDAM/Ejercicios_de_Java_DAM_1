@@ -84,6 +84,41 @@ public class Notas {
 			
 			System.out.printf("%.2f \n" , media);
 		}
+		
+		System.out.println("--------------");
+		System.out.println("La primera nota suspenso de cada estudiante");
+		System.out.println("--------------");
+		
+		for (int i = 0; i < NUM_ALUMNO; i++) {
+			
+			System.out.print("Alumno media: " + i + ": ");
+			
+			int j = 0;
+			
+			boolean entontrado = false;
+			
+			do {
+				
+				if (notas[i][j] < 5) {
+					
+					System.out.printf("%d  en %d \n" , notas[i][j], j);
+					
+					entontrado = true;
+					
+				}
+				
+				j++;
+				
+			} while (!entontrado && j <notas[i].length);
+			
+			if (entontrado == false) {
+				
+				System.out.printf("No tiene materias suspensas\n");
+				
+			} 
+	
+
+		}
 
 	}
 
