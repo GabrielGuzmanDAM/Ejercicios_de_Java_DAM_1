@@ -18,106 +18,37 @@ public class Notas {
 		
 		int notas[][] = new int [NUM_ALUMNO][NUM_MATERIAS];
 		
+		String[] alumnos = {"Pablo","Pedro","Juan","Felipe","Marselo",
+				"Jusus","Mariza","Paula", "Gabriela" , "Mauricio"};
+		
+		String[] materias = {"Mat","Len","Ing","Fis","Qui","His"};
+		
+		
 		int random;
+		
+		System.out.print("   \t\t");
+		
+		for (int i = 0; i < materias.length; i++) {
+			
+			System.out.print( materias[i] + " | ");
+		}
+		
+		System.out.print("\n\t\t-----------------------------------\n");
 		
 		for (int i = 0; i < NUM_ALUMNO; i++) {
 			
-			System.out.print("Alumno " + i + ": ");
+			System.out.print("   " + alumnos[i] + ":\t");
 			
 			for (int j = 0; j < NUM_MATERIAS; j++) {
 				
 				random =(int) (Math.random()*10);
-				
+								
 				notas[i][j] = random;
 				
-				System.out.print(notas[i][j] + " | ");
+				System.out.print(" " + notas[i][j] + "  | ");
 				
 			}
-			System.out.print("\n          -----------------------\n");
-		}
-		
-		System.out.println("--------------");
-		System.out.println("Media de cada alumno");
-		System.out.println("--------------");
-		
-		int suma = 0;
-		
-		double media;
-		
-		for (int i = 0; i < NUM_ALUMNO; i++) {
-			
-			System.out.print("Alumno media: " + i + ": ");
-			
-			suma = 0;
-			
-			for (int j = 0; j < NUM_MATERIAS; j++) {
-				
-				suma += notas[i][j];
-				
-			}
-			
-			media = (double) suma / NUM_MATERIAS;
-			
-			
-			System.out.printf("%.2f \n" , media);
-		}
-		
-		System.out.println("--------------");
-		System.out.println("Media de cada metaria");
-		System.out.println("--------------");
-		
-		
-		for (int i = 0; i < NUM_MATERIAS; i++) {
-			
-			System.out.print("Nota media materias: " + i + ": ");
-			
-			suma = 0;
-			
-			for (int j = 0; j < NUM_ALUMNO; j++) {
-				
-				suma += notas[j][i];
-				
-			}
-			
-			media = (double) suma / NUM_MATERIAS;
-			
-			
-			System.out.printf("%.2f \n" , media);
-		}
-		
-		System.out.println("--------------");
-		System.out.println("La primera nota suspenso de cada estudiante");
-		System.out.println("--------------");
-		
-		for (int i = 0; i < NUM_ALUMNO; i++) {
-			
-			System.out.print("Alumno media: " + i + ": ");
-			
-			int j = 0;
-			
-			boolean entontrado = false;
-			
-			do {
-				
-				if (notas[i][j] < 5) {
-					
-					System.out.printf("%d  en %d \n" , notas[i][j], j);
-					
-					entontrado = true;
-					
-				}
-				
-				j++;
-				
-			} while (!entontrado && j <notas[i].length);
-			
-			if (entontrado == false) {
-				
-				System.out.printf("No tiene materias suspensas\n");
-				
-			} 
-	
-
+			System.out.print("\n\t\t-----------------------------------\n");
 		}
 
 	}
