@@ -1,5 +1,5 @@
 /*
- * Descripción: Guarda y muestra una lista de numeros dadas por el usuario
+ * Descripción: Guarda y muestra una lista de numeros dadas por el usuario y su suma
  * Autor: Gabriel Guzmán
  * Fecha: 30/10/2026
  */
