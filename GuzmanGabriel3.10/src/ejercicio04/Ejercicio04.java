@@ -1,7 +1,7 @@
 /*
- * Descripción: Guarda y muestra una lista de numeros enteros dadas por el usuario y su suma de numeros pocitivos y negativos
+ * Descripción: Guarda y muestra una lista de 20 numeros enteros dadas por el usuario y su suma de numeros pocitivos y negativos
  * Autor: Gabriel Guzmán
- * Fecha: 30/10/2026
+ * Fecha: 05/11/2026
  */
 
 package ejercicio04;
@@ -15,13 +15,13 @@ public class Ejercicio04 {
 	public static void main(String[] args) {
 		Scanner pedido = new Scanner(System.in);
 		
-		final int TAMANO = 10;
+		final int TAMANO = 20;
 		
 		double numero = 0;
 		
 		double[] numeros = new double[TAMANO];
 		
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < numeros.length; i++) {
 			
 			System.out.println("-------------");
 			System.out.print("Dame un numero: ");
