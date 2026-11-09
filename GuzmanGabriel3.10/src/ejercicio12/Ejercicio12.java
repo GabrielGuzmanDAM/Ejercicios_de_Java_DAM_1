@@ -27,7 +27,7 @@ public class Ejercicio12 {
 			
 			System.out.println("-------------");
 			System.out.println("a. Mostrar valores.");
-			System.out.println("b. Mostrar valores.");
+			System.out.println("b. Cambiar valores.");
 			System.out.println("c. Salir.");
 		
 			System.out.println("-------------");
@@ -52,7 +52,7 @@ public class Ejercicio12 {
 							 fin = true;
 							 
 							 System.out.println("-------------");
-							System.out.print("Dame un numero pocicion (1-9): ");
+							System.out.print("Dame un numero pocicion (1-10): ");
 							numeroP = pedirInt(pedido);
 							
 							if (numeroP < 1 || numeroP > 10) {
