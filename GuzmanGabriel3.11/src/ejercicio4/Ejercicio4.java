@@ -1,11 +1,12 @@
 /*
  * Descripción: 
  * Autor: Gabriel Guzmán
- * Fecha: 13/11/2026
+ * Fecha: 18/11/2026
  */
 
 package ejercicio4;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Ejercicio4 {
@@ -13,113 +14,117 @@ public class Ejercicio4 {
 	public static void main(String[] args) {
 		Scanner pedido = new Scanner(System.in);
 		
-		final int NUM_ALUMNO = 10;
-		final int NUM_MATERIAS = 6;
+		final int NUM_ALUMNO = 4;
+		final int NUM_MATERIAS = 5;
 		
-		int notas[][] = new int [NUM_ALUMNO][NUM_MATERIAS];
+		double notas[][] = new double [NUM_ALUMNO][NUM_MATERIAS];
 		
-		int random;
+		double nota;
 		
 		for (int i = 0; i < NUM_ALUMNO; i++) {
 			
-			System.out.print("Alumno " + i + ": ");
 			
 			for (int j = 0; j < NUM_MATERIAS; j++) {
 				
-				random =(int) (Math.random()*10);
+				System.out.println("-------------");
+				System.out.print("Nota " + (j + 1) + " del alumno " + (i + 1) + ": ");
+				nota = pedirDouble(pedido);
 				
-				notas[i][j] = random;
+				notas[i][j] = nota;
+						
+			}
+		}
+		
+		for (int i = 0; i < NUM_ALUMNO; i++) {
+			
+			System.out.print("Alumno " + (i + 1) + ": ");
+
+			
+			for (int j = 0; j < NUM_MATERIAS; j++) {
 				
-				System.out.print(notas[i][j] + " | ");
+				System.out.print(" " + notas[i][j] + "  | ");
 				
 			}
-			System.out.print("\n          -----------------------\n");
+			
+			System.out.print("\n");
+			
 		}
 		
 		System.out.println("--------------");
-		System.out.println("Media de cada alumno");
+		System.out.println("Media de cada alumno, maximo y minimo");
 		System.out.println("--------------");
 		
 		int suma = 0;
 		
 		double media;
 		
+		double maximo = 0;
+		
+		double minimo = 10;
+		
 		for (int i = 0; i < NUM_ALUMNO; i++) {
 			
-			System.out.print("Alumno media: " + i + ": ");
-			
 			suma = 0;
+			
+			maximo = 0;
+			
+			minimo = 10;
 			
 			for (int j = 0; j < NUM_MATERIAS; j++) {
 				
 				suma += notas[i][j];
 				
-			}
-			
-			media = (double) suma / NUM_MATERIAS;
-			
-			
-			System.out.printf("%.2f \n" , media);
-		}
-		
-		System.out.println("--------------");
-		System.out.println("Media de cada metaria");
-		System.out.println("--------------");
-		
-		
-		for (int i = 0; i < NUM_MATERIAS; i++) {
-			
-			System.out.print("Nota media materias: " + i + ": ");
-			
-			suma = 0;
-			
-			for (int j = 0; j < NUM_ALUMNO; j++) {
-				
-				suma += notas[j][i];
-				
-			}
-			
-			media = (double) suma / NUM_MATERIAS;
-			
-			
-			System.out.printf("%.2f \n" , media);
-		}
-		
-		System.out.println("--------------");
-		System.out.println("La primera nota suspenso de cada estudiante");
-		System.out.println("--------------");
-		
-		for (int i = 0; i < NUM_ALUMNO; i++) {
-			
-			System.out.print("Alumno media: " + i + ": ");
-			
-			int j = 0;
-			
-			boolean entontrado = false;
-			
-			do {
-				
-				if (notas[i][j] < 5) {
+				if (maximo < notas[i][j]) {
 					
-					System.out.printf("%d  en %d \n" , notas[i][j], j);
+					maximo = notas[i][j];
 					
-					entontrado = true;
+				} 
+				
+				if (minimo > notas[i][j]) {
 					
+					minimo = notas[i][j];
+
 				}
 				
-				j++;
-				
-			} while (!entontrado && j <notas[i].length);
+			}
 			
-			if (entontrado == false) {
-				
-				System.out.printf("No tiene materias suspensas\n");
-				
-			} 
-	
-
+			media = (double) suma / NUM_MATERIAS;
+			
+			System.out.printf("Alumno media %d: %.2f | Maximo: %.2f| Minimo: %.2f\n", i , media, maximo , minimo);
 		}
 
+	}
+	
+
+	
+	//pedirDouble: pide un double al usuario. (double)
+	public static double pedirDouble(Scanner pedido) {
+		
+		double numero = 0;
+		
+		boolean error = false;
+		
+		do {
+			
+			try {
+				
+				numero = pedido.nextInt();
+				error = false;
+				
+			} catch (InputMismatchException  e) {
+				System.out.println("Error: Debe de introducir un numero entero");
+				pedido.nextLine();
+				error = true;
+			}
+			
+			if (numero < 0 || numero > 10) {
+				System.out.println("Error: Debe de introducir un numero entre 0 - 10");
+				error = true;
+			}
+			
+		} while (error);
+		
+		return numero;
 	}
 
 }
